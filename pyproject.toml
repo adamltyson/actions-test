@@ -35,7 +35,7 @@ dev = [
 	"pre-commit",
 	"flake8",
 	"coverage",
-  "setuptools_scm"
+  "setuptools_scm[toml]"
 ]
 
 
@@ -77,4 +77,3 @@ exclude = '''
   )/
 )
 '''
-

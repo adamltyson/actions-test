@@ -32,3 +32,7 @@ repos:
           - id: mypy
             additional_dependencies:
                 - types-setuptools
+    -   repo: https://github.com/mgedmin/check-manifest
+        rev: "0.48"
+        hooks:
+        -   id: check-manifest
