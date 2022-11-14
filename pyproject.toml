@@ -1,6 +1,6 @@
 [project]
 name = "actions-test2"
-version = "0.0.3-rc0"
+version = "0.0.4-rc0"
 authors = [{name = "Adam Tyson", email= "code@adamltyson.com"}]
 description = "testing Gh actions"
 readme = "README.md"
