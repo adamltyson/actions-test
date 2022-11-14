@@ -6,13 +6,13 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: neuroinformatics-unit/actions/lint@v1.0.1
+      - uses: neuroinformatics-unit/actions/lint@v1.0.2
 
   manifest:
     name: Check Manifest
     runs-on: ubuntu-latest
     steps:
-      - uses: neuroinformatics-unit/actions/check_manifest@v1.0.1
+      - uses: neuroinformatics-unit/actions/check_manifest@v1.0.2
 
   test:
     needs: [linting, manifest]
@@ -32,6 +32,6 @@ jobs:
 
     steps:
       # Run tests
-      - uses: neuroinformatics-unit/actions/test@v1.0.1
+      - uses: neuroinformatics-unit/actions/test@v1.0.2
         with:
           python-version: ${{ matrix.python-version }}
