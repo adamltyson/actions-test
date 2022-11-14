@@ -1,5 +1,5 @@
 [project]
-name = "actions-test"
+name = "actions-test2"
 version = "0.0.1"
 authors = [{name = "Adam Tyson", email= "code@adamltyson.com"}]
 description = "testing Gh actions"
