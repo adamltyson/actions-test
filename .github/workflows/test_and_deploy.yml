@@ -6,13 +6,13 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: neuroinformatics-unit/actions/lint@v1.0.3
+      - uses: neuroinformatics-unit/actions/lint@v1.0.4
 
   manifest:
     name: Check Manifest
     runs-on: ubuntu-latest
     steps:
-      - uses: neuroinformatics-unit/actions/check_manifest@v1.0.3
+      - uses: neuroinformatics-unit/actions/check_manifest@v1.0.4
 
   test:
     needs: [linting, manifest]
@@ -32,32 +32,22 @@ jobs:
 
     steps:
       # Run tests
-      - uses: neuroinformatics-unit/actions/test@v1.0.3
+      - uses: neuroinformatics-unit/actions/test@v1.0.4
         with:
           python-version: ${{ matrix.python-version }}
 
-  build_sdist:
+  build_sdist_wheels:
     name: Build source distribution
     needs: [test]
     if: github.event_name == 'push' && github.ref_type == 'tag'
     runs-on: ubuntu-latest
     steps:
-    - uses: neuroinformatics-unit/actions/build_sdist@v1.0.3
+    - uses: neuroinformatics-unit/actions/build_sdist_wheels@v1.0.4
 
-  build_wheels:
-    name: Build wheels on ${{ matrix.os }}
-    needs: [test]
-    if: github.event_name == 'push' && github.ref_type == 'tag'
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-20.04, windows-2019, macos-11]
-    steps:
-    - uses: neuroinformatics-unit/actions/build_wheels@v1.0.3
 
   upload_all:
     name: Publish build distributions
-    needs: [build_sdist, build_wheels]
+    needs: [build_sdist_wheels]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/download-artifact@v3
