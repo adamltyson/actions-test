@@ -17,7 +17,6 @@ repos:
           - id: trailing-whitespace
             # bump2version produces whitespace in setup.cfg, so exclude to
             # not inferfere with versioning
-            exclude: setup.cfg
     - repo: https://gitlab.com/pycqa/flake8
       rev: 5.0.4
       hooks:
@@ -32,7 +31,3 @@ repos:
           - id: mypy
             additional_dependencies:
                 - types-setuptools
-    -   repo: https://github.com/mgedmin/check-manifest
-        rev: "0.48"
-        hooks:
-        -   id: check-manifest
